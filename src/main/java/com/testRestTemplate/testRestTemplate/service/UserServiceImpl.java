@@ -2,7 +2,6 @@ package com.testRestTemplate.testRestTemplate.service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ import com.testRestTemplate.testRestTemplate.model.Domicilio;
 import com.testRestTemplate.testRestTemplate.model.Motorcycle;
 import com.testRestTemplate.testRestTemplate.model.User;
 import com.testRestTemplate.testRestTemplate.repository.DomicilioRepository;
-import com.testRestTemplate.testRestTemplate.repository.MotorcycleRepository;
+
 import com.testRestTemplate.testRestTemplate.repository.UserRepository;
 
 import jakarta.transaction.Transactional;
@@ -35,8 +34,7 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
     @Autowired
     private RestTemplate restTemplate;
-    @Autowired
-    private MotorcycleRepository motorcycleRepository;
+
     @Autowired
     private final MotorcycleMapper motorcycleMapper;
     @Autowired
@@ -45,12 +43,12 @@ public class UserServiceImpl implements UserService {
     private UserMapperBuilder userMapperBuilder;
 
     public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, RestTemplate restTemplate,
-            MotorcycleRepository motorcycleRepository, MotorcycleMapper motorcycleMapper,
+            MotorcycleMapper motorcycleMapper,
             DomicilioRepository domicilioRepository, UserMapperBuilder userMapperBuilder) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
         this.restTemplate = restTemplate;
-        this.motorcycleRepository = motorcycleRepository;
+
         this.motorcycleMapper = motorcycleMapper;
         this.domicilioRepository = domicilioRepository;
         this.userMapperBuilder = userMapperBuilder;
@@ -110,6 +108,10 @@ public class UserServiceImpl implements UserService {
     }
     // public List<User> findAll() {
     // return restTemplate.getForObject(BASE_URL, List.class);
+    // }
+
+    // public Optional<PanaderiaDTO> getPanaderiaById(Long id) {
+    // return panaderiaRepository.findById(id).map(panaderiaMapper::toDTOPanaderia);
     // }
 
     @Override

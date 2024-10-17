@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.testRestTemplate.testRestTemplate.mapper.UserMapper;
 import com.testRestTemplate.testRestTemplate.mapper.UserMapperBuilder;
 import com.testRestTemplate.testRestTemplate.model.User;
 import com.testRestTemplate.testRestTemplate.repository.UserRepository;

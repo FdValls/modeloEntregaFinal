@@ -1,9 +1,6 @@
 package com.testRestTemplate.testRestTemplate.controller;
 
 import java.util.List;
-import java.util.Set;
-
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,7 +16,6 @@ import com.testRestTemplate.testRestTemplate.dto.DomicilioDTO;
 import com.testRestTemplate.testRestTemplate.dto.MotorcycleDTO;
 import com.testRestTemplate.testRestTemplate.dto.UserDTO;
 import com.testRestTemplate.testRestTemplate.model.User;
-import com.testRestTemplate.testRestTemplate.service.UserService;
 import com.testRestTemplate.testRestTemplate.service.UserServiceImpl;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -28,7 +24,6 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 // import io.swagger.v3.oas.models.responses.ApiResponses;
 
@@ -92,12 +87,6 @@ public class UserController {
             return ResponseEntity.badRequest().body(new ApiResponseMsg("Usuarios no encontrados ", e.getMessage()));
         }
     }
-
-    // @GetMapping(path = "/all")
-    // public ResponseEntity<?> getAllUsers() {
-    // List<User> users = userService.findAll();
-    // return ResponseEntity.ok(users);
-    // }
 
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO) {
